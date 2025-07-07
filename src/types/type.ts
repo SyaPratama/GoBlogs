@@ -1,8 +1,10 @@
 import { ReactNode } from "react"
 
 export type OverlayType = {
+    theme: "light" | "dark",
     isVisible: boolean,
-    children: ReactNode
+    handler?: (state: boolean) => void,
+    children: ReactNode,
 }
 
 export type QuickAccesType = {

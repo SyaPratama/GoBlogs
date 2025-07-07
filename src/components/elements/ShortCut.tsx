@@ -41,6 +41,18 @@ export default function ShortCut() {
             </div>
           </div>
         </div>
+        <div className="inline-flex justify-between py-2 text-[.8em] border-b-1 border-b-slate-400/50">
+          Open Search Modal
+          <div className="inline-flex gap-1">
+            <div className="border-1 border-b-3 border-slate-300 px-2 py-[2px] bg-slate-200 text-xs font-semibold rounded-sm">
+              Ctrl
+            </div>
+            +
+            <div className="border-1 border-b-3 border-slate-300 px-2 py-[2px] bg-slate-200 text-xs font-semibold rounded-sm">
+              F
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

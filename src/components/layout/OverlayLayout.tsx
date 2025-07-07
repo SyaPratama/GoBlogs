@@ -1,18 +1,21 @@
 "use client";
 
 import { OverlayType } from "@/types/type";
+import clsx from "clsx";
 import { AnimatePresence, motion } from "motion/react";
 
-export default function OverlayLayout({ isVisible ,children }: OverlayType)  {
+export default function OverlayLayout({ theme ,isVisible, handler, children }: OverlayType)  {
+  
   return (
     <AnimatePresence initial={false}>
       {isVisible ? (
         <motion.div
+          onClick={() => theme === "dark" ? handler(!isVisible) : null}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed top-0 left-0 bg-white/5 backdrop-blur-xs z-40 w-full min-h-dvh"
+          className={clsx( theme === "light" ? "fixed top-0 left-0 bg-white/25 backdrop-blur-xs z-40 w-full min-h-dvh" : "fixed top-0 left-0 bg-black/25 backdrop-blur-xs z-40 w-full min-h-dvh") }
         >
           {children}
         </motion.div>

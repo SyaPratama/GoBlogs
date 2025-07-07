@@ -11,12 +11,12 @@ import { useHotkeys } from "react-hotkeys-hook";
 export default function QuickCenter() {
   const [overlayVisible, setOverlayVisible] = useState(false);
 
-  const childComponentHandler = <T extends boolean> (state: T): void => {
+  const ComponentHandler = <T extends boolean> (state: T): void => {
     setOverlayVisible(state)
   }
 
-  useHotkeys("esc",(): void => childComponentHandler(false));
-  useHotkeys("ctrl+q",():void => childComponentHandler(overlayVisible ? !overlayVisible : true));  
+  useHotkeys("esc",(): void => ComponentHandler(false));
+  useHotkeys("ctrl+q",():void => ComponentHandler(overlayVisible ? !overlayVisible : true));  
 
   return (
     <>
@@ -28,8 +28,8 @@ export default function QuickCenter() {
         Quick Center
         <IoIosArrowForward />
       </Button>
-      <OverlayLayout isVisible={overlayVisible}>
-        <QuickAcces setOverlay={childComponentHandler}/>
+      <OverlayLayout theme="light" isVisible={overlayVisible}>
+        <QuickAcces setOverlay={ComponentHandler}/>
       </OverlayLayout>
     </>
   );
