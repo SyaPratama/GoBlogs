@@ -34,7 +34,7 @@ export default function SearchBtn() {
         </Button>
       </div>
 
-      <OverlayLayout theme="dark" isVisible={isVisible}>
+      <OverlayLayout theme="dark" handler={ComponentHandler} isVisible={isVisible}>
         <ModalSearch />
       </OverlayLayout>
     </>
