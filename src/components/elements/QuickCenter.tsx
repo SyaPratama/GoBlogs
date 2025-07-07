@@ -6,6 +6,7 @@ import { Button } from "@headlessui/react";
 import { useState } from "react";
 import OverlayLayout from "../layout/OverlayLayout";
 import QuickAcces from "../views/QuickAcces";
+import { useHotkeys } from "react-hotkeys-hook";
 
 export default function QuickCenter() {
   const [overlayVisible, setOverlayVisible] = useState(false);
@@ -13,6 +14,9 @@ export default function QuickCenter() {
   const childComponentHandler = <T extends boolean> (state: T): void => {
     setOverlayVisible(state)
   }
+
+  useHotkeys("esc",(): void => childComponentHandler(false));
+  useHotkeys("ctrl+q",():void => childComponentHandler(overlayVisible ? !overlayVisible : true));  
 
   return (
     <>
