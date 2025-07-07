@@ -1,30 +1,20 @@
 "use client";
 
 import { Button } from "@headlessui/react";
-import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import ModalSearch from "../views/ModalSearch";
 import OverlayLayout from "../layout/OverlayLayout";
-import { useHotkeys } from "react-hotkeys-hook";
+import { AnimatePresence, motion } from "motion/react";
 
-export default function SearchBtn() {
-  const [isVisible, setIsVisible] = useState(false);
+export default function SearchBtn({ searchVisible, handler }: { searchVisible: boolean, handler: (state: boolean) => void }) {
 
-  const ComponentHandler = <T extends boolean>(state: T): void => {
-    setIsVisible(state);
-  };
-
-  useHotkeys("esc", (): void => ComponentHandler(false));
-  useHotkeys("ctrl+f", (e): void => {
-    e.preventDefault();
-    ComponentHandler(isVisible ? !isVisible : true);
-  });
+  
 
   return (
     <>
       <div className="w-60 h-8 relative">
         <Button
-          onClick={() => ComponentHandler(true)}
+          onClick={() => handler(true)}
           className="w-full h-full cursor-pointer bg-white border-2 border-slate-200 text-left pl-3 rounded-2xl text-sm text-slate-400 outline-0"
         >
           Search...
@@ -34,8 +24,12 @@ export default function SearchBtn() {
         </Button>
       </div>
 
-      <OverlayLayout theme="dark" handler={ComponentHandler} isVisible={isVisible}>
+      <OverlayLayout theme="dark" handler={handler} isVisible={searchVisible}>
+        <AnimatePresence mode="wait">
+          <motion.div initial={{ y: -25, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.2, delay: 0.1 }}>
         <ModalSearch />
+          </motion.div>
+        </AnimatePresence>
       </OverlayLayout>
     </>
   );
