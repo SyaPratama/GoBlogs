@@ -12,7 +12,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "strictNullChecks": false,
+    "traceResolution": true,
     "incremental": true,
+
     "plugins": [
       {
         "name": "next"

@@ -15,7 +15,7 @@ export default function Layout({ children }: PropsWithChildren) {
 
   return (
     <>
-      <main className="w-full">
+      <main className="w-full bg-red-300">
         <Navbar />
         {children}
       </main>

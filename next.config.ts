@@ -5,7 +5,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   experimental: {
     optimizePackageImports: [
-      'react-icons'
+      'react-icons',
+      'motion',
+      'react-hotkeys-hook',
     ]
   }
 };
