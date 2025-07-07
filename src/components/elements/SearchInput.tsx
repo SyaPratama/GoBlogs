@@ -38,6 +38,7 @@ export default function SearchInput({ className }: { className?: string }) {
       }
     }
     run();
+    /* eslint-disable react-hooks/exhaustive-deps */
   }, []);
   return (
     <div className="relative w-full h-full">
