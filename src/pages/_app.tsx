@@ -3,7 +3,6 @@ import Layout from "@/components/layout/Layout";
 import { ThemeProvider } from "next-themes";
 import "@/assets/styles/main.css";
 
-
 export default function App({ Component, pageProps }: AppProps) {
   return (
       <ThemeProvider

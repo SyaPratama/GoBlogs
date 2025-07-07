@@ -10,7 +10,7 @@ const inter = localFont({
 export default function Layout({ children }: PropsWithChildren) {
   return (
     <>
-      <main className={`${inter.className} w-full bg-red-300`}>
+      <main className={`${inter.className} w-full bg-red-300 relative`}>
         <Navbar />
         {children}
       </main>
