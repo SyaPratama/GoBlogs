@@ -1,21 +1,16 @@
-import clsx from "clsx";
-import { PropsWithChildren, useEffect } from "react";
-import { Inter } from "next/font/google";
+import { PropsWithChildren } from "react";
+import localFont from "next/font/local";
 import Navbar from "./partials/Navbar";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
+const inter = localFont({
+  src: "../../../public/fonts/inter.otf",
 });
 
-export default function Layout({ children }: PropsWithChildren) {
-  useEffect(() => {
-    document.documentElement.classList.add(clsx(inter.className));
-  }, []);
 
+export default function Layout({ children }: PropsWithChildren) {
   return (
     <>
-      <main className="w-full bg-red-300">
+      <main className={`${inter.className} w-full bg-red-300`}>
         <Navbar />
         {children}
       </main>
