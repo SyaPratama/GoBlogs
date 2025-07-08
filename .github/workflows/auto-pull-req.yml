@@ -1,0 +1,32 @@
+name: Auto Pull Request Branch Update
+
+on:
+  push:
+    branches:
+      - development  # Trigger saat ada push ke development
+
+jobs:
+  auto-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Penting agar riwayat git lengkap
+
+      - name: Set up Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "🔀 Auto PR: development ➜ main"
+          body: |
+            PR ini dibuat otomatis oleh GitHub Actions setiap ada update pada branch `development`.
+          base: main       # Target merge (main branch)
+          head: development # Branch sumber
+          draft: false
