@@ -4,12 +4,12 @@ html {
 }
 
 &::-webkit-scrollbar{
-    width: 3px;
+    width: 2px;
 }
 
 &::-webkit-scrollbar-thumb{
     background: var(--color-slate-800);
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 &::-webkit-scrollbar-track{
