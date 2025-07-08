@@ -43,7 +43,7 @@ export default function SearchInput({ className }: { className?: string }) {
   return (
     <div className="relative w-full h-full">
         <Input placeholder={placeholder} type="text" className={className} />
-        <CiSearch className="absolute top-2.5 left-2.5 text-md text-slate-400"/>
+        <CiSearch className="absolute md:top-2.5 md:left-2.5 top-[9px] left-[9px] md:text-md text-sm text-slate-400"/>
     </div>
 );
 }
