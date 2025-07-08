@@ -15,7 +15,7 @@ export default function SearchBtn({
 }) {
   return (
     <>
-      <div className="w-60 h-8 relative md:block hidden ">
+      <div className="w-40 h-8 relative md:block hidden ">
         <Button
           onClick={(): void => handler(true)}
           className="w-full h-full cursor-pointer bg-white border-2 border-slate-200 hover:border-slate-400 transition duration-350 text-left pl-3 rounded-2xl text-sm text-slate-400 outline-0"

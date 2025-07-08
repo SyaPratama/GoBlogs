@@ -1,4 +1,3 @@
-import ScrollEvent from "@/lib/ScrollEvent";
 import { OverlayType } from "@/types/type";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "motion/react";
@@ -10,13 +9,12 @@ export default function OverlayLayout({
 }: OverlayType) {
   return (
     <>
-    <ScrollEvent/>
       <AnimatePresence initial={false}>
         {isVisible ? (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, display: "none" }}
+            animate={{ opacity: 1, display: "block" }}
+            exit={{ opacity: 0, display: "none" }}
             transition={{ duration: 0.3 }}
             className={clsx(
               theme === "light"

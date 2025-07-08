@@ -1,16 +1,11 @@
-import { Component, ReactNode } from "react";
-
-export default class ScrollEvent extends Component {
-    componentDidMount(): void {
+export default class ScrollEvent {
+    static addOverlay(): void {
         document.body.classList.add('overflow-y-hidden');
     }
 
-    componentWillUnmount(): void {
+    static hideOverlay(): void {
         document.body.classList.remove('overflow-y-hidden');
     }
 
-    render(): ReactNode {
-        return false;
-    }
 }
 
