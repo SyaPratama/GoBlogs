@@ -59,9 +59,9 @@ export default function Navbar() {
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className="sticky top-0 max-w-full"
     >
-      <div className="flex items-center px-12 py-4 justify-between">
-        <div className="inline-flex gap-10 items-center">
-          <Icon />
+      <div className="flex items-center md:px-12 px-6 py-3 md:py-4 justify-between">
+        <div className="inline-flex md:gap-10 gap-3 items-center">
+          <Icon/>
           <QuickCenter quickVisible={overlayVisible} handler={ComponentHandler} />
         </div>
         <div className="inline-flex gap-x-3.5 items-center">

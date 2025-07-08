@@ -12,7 +12,7 @@ import { FaUserAlt } from "react-icons/fa";
 export default function AuthDropDown() {
   return (
     <Menu>
-      <MenuButton className="outline-none text-slate-600 cursor-pointer">
+      <MenuButton className="md:block hidden outline-none text-slate-600 cursor-pointer">
         <FaUserAlt />
       </MenuButton>
       <MenuItems
