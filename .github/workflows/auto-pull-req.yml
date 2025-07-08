@@ -1,32 +1,50 @@
-name: Auto Pull Request Branch Update
+name: development ➜ main
 
 on:
   push:
     branches:
-      - development  # Trigger saat ada push ke development
+      - development
 
 jobs:
-  auto-pr:
+  auto-pr-merge:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Penting agar riwayat git lengkap
+          fetch-depth: 0  # Full history untuk melihat diff antar cabang
 
-      - name: Set up Git user
+      - name: Set up Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Create Pull Request
+      - name: Fetch all branches
+        run: git fetch origin main
+
+      - name: Check if development is ahead of main
+        id: check_diff
+        run: |
+          git rev-list --count origin/main..HEAD > diff_count.txt
+          DIFF_COUNT=$(cat diff_count.txt)
+          echo "Jumlah commit yang belum masuk main: $DIFF_COUNT"
+          echo "diff_count=$DIFF_COUNT" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request to main (if changes)
+        id: cpr
+        if: steps.check_diff.outputs.diff_count != '0'
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: "🔀 Auto PR: development ➜ main"
-          body: |
-            PR ini dibuat otomatis oleh GitHub Actions setiap ada update pada branch `development`.
-          base: main       # Target merge (main branch)
-          head: development # Branch sumber
+          title: "🔀 PR Otomatis dari development ke main"
+          body: "Pull request ini dibuat otomatis karena terdapat commit baru di development."
+          base: main
+          branch: development
           draft: false
+
+      - name: Merge Pull Request
+        if: steps.cpr.outputs.pull-request-number != ''
+        run: gh pr merge ${{ steps.cpr.outputs.pull-request-number }} --merge --admin --delete-branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
