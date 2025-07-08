@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 
 export default function ShortCut() {
   return (
-    <div className="absolute bottom-10 left-10 bg-white/10 backdrop-blur-sm ring-1 ring-slate-200/60 w-85 h-auto rounded-xl px-4 pt-4 bg-white/">
+    <div className="absolute bottom-10 left-10 bg-white/10 backdrop-blur-sm ring-1 ring-slate-200/60 w-72 h-auto rounded-xl px-4 pt-4 bg-white/">
       <header className="inline-flex flex-col gap-3">
         <div className="inline-flex items-center gap-4">
           <BsKeyboard className="text-4xl" />
