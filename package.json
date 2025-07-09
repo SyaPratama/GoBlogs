@@ -1,5 +1,5 @@
 {
-  "$schema":"https://json.schemastore.org/tsconfig",
+  "$schema": "https://json.schemastore.org/tsconfig",
   "name": "blogapp",
   "version": "0.1.0",
   "private": true,
@@ -16,6 +16,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.525.0",
+    "moment-timezone": "^0.6.0",
     "motion": "^12.23.0",
     "next": "15.3.5",
     "next-themes": "^0.4.6",
