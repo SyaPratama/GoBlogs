@@ -76,7 +76,7 @@ export default function Navbar() {
   useHotkeys("ctrl+d", (e): void => {
     e.preventDefault();
     setTheme(theme == "light" ? "dark" : "light");
-  });
+  }, { scopes: ["theme"] });
 
   useHotkeys("esc", (): void => {
     ComponentHandler(false);
