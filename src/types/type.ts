@@ -1,7 +1,6 @@
 import { ReactNode } from "react"
 
 export type OverlayType = {
-    theme: "light" | "dark",
     isVisible: boolean,
     handler?: (state: boolean) => void,
     children: ReactNode,

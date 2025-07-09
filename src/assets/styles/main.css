@@ -1,24 +1,31 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-&::-webkit-scrollbar{
-    width: 2px;
+&::-webkit-scrollbar {
+  width: 2px;
 }
 
 &::-webkit-scrollbar-thumb{
-    background: var(--color-slate-800);
-    border-radius: 10px;
+  border-radius: 10px;
+  background: var(--color-slate-900);
 }
 
-&::-webkit-scrollbar-track{
-    background: var(--color-red-300);
-
+.dark::-webkit-scrollbar-thumb {
+  background: var(--color-slate-100);
 }
 
-@layer utilities{   
-    .scrollNavbar{
-        @apply bg-white/5 backdrop-blur-sm shadow-sm
-    }
+
+@layer utilities {
+  .dark .scrollNavbar {
+    @apply bg-slate-100/5 backdrop-blur-sm shadow-md shadow-slate-100/5;
+  }
+
+  .scrollNavbar {
+    @apply bg-slate-100/5 backdrop-blur-sm shadow-md shadow-black/5;
+  }
 }
