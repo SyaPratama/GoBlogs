@@ -6,24 +6,33 @@ import { IoPartlySunnySharp } from "react-icons/io5";
 import moment from "moment-timezone";
 import { useEffect, useState } from "react";
 import { motion, useAnimate } from "motion/react";
+import { useHotkeys, useHotkeysContext } from "react-hotkeys-hook";
 
 export default function Setting() {
   const { theme, setTheme } = useTheme();
   const [time, setTime] = useState(moment.tz("Asia/Jakarta"));
   const [scope, animate] = useAnimate();
+  const { disableScope } = useHotkeysContext();
 
   const changeTheme = async (theme: string): Promise<void> => {
-    await animate(scope.current, { opacity: 0 }, { duration: 0.3 });
+    await animate(scope.current, { opacity: 0 }, { duration: .25 });
     setTheme(theme);
-    await animate(scope.current, { opacity: 1 }, { duration: 0.3 });
+    await animate(scope.current, { opacity: 1 }, { duration: .25 });
   };
 
+  useHotkeys("ctrl+d", (e: Event) => {
+    e.preventDefault();
+    changeTheme(theme == "light" ? "dark" : "light");
+  }, { scopes: [ "theme" ] });
+
   useEffect(() => {
+    disableScope("theme");
     const interval = setInterval(() => {
       setTime(moment.tz("Asia/Jakarta"));
     }, 1000);
 
     return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
