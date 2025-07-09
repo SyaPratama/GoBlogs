@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       'react-icons',
       'motion',
       'react-hotkeys-hook',
+      'moment-timezone'
     ]
   }
 };
