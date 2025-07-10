@@ -2,8 +2,9 @@
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
 import { Button } from "@headlessui/react";
+import { ReactElement } from "react";
 
-export default function QuickCenter({ handler }: { quickVisible: boolean, handler: (state: boolean) => void }) {
+export default function QuickCenter({ handler }: { quickVisible: boolean, handler: (state: boolean) => void }): ReactElement {
   
   return (
     <>

@@ -4,11 +4,11 @@ import { useTheme } from "next-themes";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { IoPartlySunnySharp } from "react-icons/io5";
 import moment from "moment-timezone";
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { motion, useAnimate } from "motion/react";
 import { useHotkeys, useHotkeysContext } from "react-hotkeys-hook";
 
-export default function Setting() {
+export default function Setting(): ReactElement {
   const { theme, setTheme } = useTheme();
   const [time, setTime] = useState(moment.tz("Asia/Jakarta"));
   const [scope, animate] = useAnimate();

@@ -2,11 +2,11 @@
 
 import { Input } from "@headlessui/react";
 import { animate } from "motion/react";
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 
 
-export default function SearchInput({ className }: { className?: string }) {
+export default function SearchInput({ className }: { className?: string }): ReactElement {
   const [placeholder, setPlaceholder] = useState("");
   const texts = ["Search...", "Something News...", "Hidup Jokowi..."];
 

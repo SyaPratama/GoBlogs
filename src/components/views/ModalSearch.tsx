@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { ReactElement, useEffect, useRef, useState } from "react";
 import SearchInput from "../elements/SearchInput";
 
 export default function ModalSearch({
@@ -7,7 +7,7 @@ export default function ModalSearch({
 }: {
   isVisible: boolean;
   handler: (state: boolean) => void;
-}) {
+}): ReactElement {
   const modal = useRef(null);
   const [showModal,setShowModal] = useState(false);
 

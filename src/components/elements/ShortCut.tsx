@@ -2,8 +2,9 @@
 
 import { BsKeyboard } from "react-icons/bs";
 import { AnimatePresence, motion } from "motion/react";
+import { ReactElement } from "react";
 
-export default function ShortCut() {
+export default function ShortCut(): ReactElement {
   return (
       <div className="absolute bottom-10 md:left-10 md:block hidden dark:text-slate-100 text-slate-900 dark:bg-slate-600/10 bg-white/5 shadow-sm backdrop-blur-sm ring-1 dark:ring-slate-700/60 ring-slate-200/60  md:w-3/12 w-10/12 rounded-xl px-4 pt-4 bg-white/">
         <header className="inline-flex flex-col gap-3">

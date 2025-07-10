@@ -1,9 +1,10 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, ReactElement } from "react";
+import Sidebar from "../elements/MainSidebar";
 
-export default function DashboardLayout({ children }: PropsWithChildren){
+export default function DashboardLayout({ children }: PropsWithChildren): ReactElement {
     return (
         <>
-            <h1>LOL</h1>
+            <Sidebar/>
             { children }
         </>
     );
